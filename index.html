@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+    <title>My Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
+
 <body>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-12" id ="result">
-
+            <div class="col-3"></div>
+            <div class="col-6" id="card">
+                <form action="#">
+                    <select id="recipe" class="form-control">
+                        <option value="" disabled selected>Choose recipe</option>
+                        <option value="1">Avocado Shake (Toek KaLok)</option>
+                        <option value="2">French creps</option>
+                      
+                    </select>
+                </form>
+               
+            </div>  
+            <div class="col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h3 id="ingredient"></h3>
+                    <table class="table table-borderless" id="table">
+                        </table>
+            </div>
+            <div class="col-6">
+                <h3 id="instruction"></h3>
+                <div class="card" id="ins"></div>
             </div>
         </div>
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/project.js"></script>
+    <script src="js/Jquery_project.js"></script>
+
 </body>
+
 </html>
