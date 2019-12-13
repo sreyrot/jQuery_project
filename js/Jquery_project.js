@@ -1,112 +1,114 @@
-$(document).ready(function () {
-    $('#recipe').on('change', function () {
-        var fruit = $('#recipe').val();
-    // console.log(fruit);
-        choose(fruit);
+
+
+// Start to user jquery
+$(document).ready(() => {
+    requestApi();
+    $('#line').hide();
+    $("#button").hide();
+    $("#recipe").on("change", () => {
+        $('#line').show();
+        $("#button").show();
+        var recipeId = $("#recipe").val();
+        selectRecipe(recipeId);
     });
-});
-function choose(data) {
-    switch (parseInt(data)) {
-        case 1:
-        avokado();
-            break;
-        
-         case 2:
-         frence();
-             break;
+
    
-    }
+
+});
+// function to request api
+var requestApi = () => {
+    $.ajax({
+        dataType: 'json',
+        url: getUrl(),
+        success: (data) => getRecipe(data),
+        error: () => console.log("error"),
+    });
 }
-    function avokado(){
-        var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
-        $.ajax({
-            dataType: 'json',
-            url: url,
-            success: function(data){
-                var result = "";
-                data.recipes.forEach(el =>{
-                   if(el.id == 0){
+// fuction request url
 
-                    result += `
-                        <div class="card-body">
-                            ${el.name}
-                            <img src= "${el.iconUrl}" width="100px">
-                        </div>
-                    `;
-                
-                }
-                })
-                $('#card').html(result);
-                var ingredient = "";
-                data.recipes.forEach(ing =>{
-                    ing.ingredients.forEach(item =>{
-                       if(ing.id == 0){
-                        ingredient += `
-                        <tr>
-                        <td><img src="${item.iconUrl}" width="50px"></td>
-                         <td>${item.name}</td>
-                         <td>${item.quantity}</td>
-                         <td>${item.unit[0]}</td>
-                        </tr>
-                     `;
-                       }
-                    })
-                    $('#table').html(ingredient);
-                })
-              
-            }
-        })
+function getUrl() {
+    var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
+    return url;
+}
+
+// fuction getRcipe
+var allData = [];
+function getRecipe(data) {
+    allData = data;
+    var option = "";
+    data.recipes.forEach(element => {
+      
+        option += `
+    <option value ="${element.id}">${ element.name}</option>
+    `;
+    });
+    $("#recipe").append(option);
+}
+
+
+
+// select recipi
+function selectRecipe(getID) {
+    allData.recipes.forEach(item => {
+      
+        if (item.id == getID) {
+            eachRecipe(item.name, item.iconUrl);
+            inGredient(item.ingredients);
+            getInstruction(item.instructions);
+            // getNumberGest(item.nbGuests);
+            getNumberGest(item.nbGuests);
+        }
+    });
+}
+// function each recipe
+
+function eachRecipe(name, iconUrl) {
+    // for name
+    var names = "";
+    names += `
+            <h1>${name}</h1>
+    `;
+    $("#name").html(names);
+    // for iconUrl
+    var icons ="";
+    icons += `
+    <img src="${iconUrl}" width="150px">
+    `;
+    $('#icon').html(icons);
+}
+
+// ingredient
+function inGredient(ing) {
+    var result = "";
+    ing.forEach(item => {
+        
+        result += `
+        <tr>
+            <td><img src="${item.iconUrl}" width="50px"></td>
+            <td>${item.quantity}</td>
+            <td>${item.unit[0]}</td>
+            <td>${item.name}</td>
+            
+
+        </tr>
+    `;
+    });
+    $("#ing").html("Ingredient");
+    $("#ingredient").html(result);
+}
+
+// introduction
+function getInstruction(int){
+    var instruction = "";
+    var splitInstruction = int.split("<step>");
+    for(let i = 1; i < splitInstruction.length; i++){
+        instruction += `
+           
+            <h5 class="text-primary">Step: ${i}</h5>
+            <p>${splitInstruction[i]}</p>
+        `;
     }
+    $("#ins").html("Instruction");
+    $("#introduction").html(instruction);
+}
 
-    // frence crip
-
-    function frence(){
-        var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
-        $.ajax({
-            dataType: 'json',
-            url: url,
-            success: function(creps){
-                var results = "";
-                creps.recipes.forEach(crep =>{
-                   if(crep.id == 1){
-                    results += `
-                        <div class="card-body">
-                            ${crep.name}
-                            <img src= "${crep.iconUrl}" width="100px">
-                        </div>
-                    `;
-                
-                }
-                })
-                $('#card').append(results);
-
-                var gredient = "";
-                var instruction ="";
-                creps.recipes.forEach(element =>{
-                    element.ingredients.forEach(items =>{
-                       if(element.id == 1){
-                          
-                        gredient += `
-                        <tr>
-                        <td><img src="${items.iconUrl}" width="50px"></td>
-                         <td>${items.name}</td>
-                         <td>${items.quantity}</td>
-                         <td>${items.unit[0].toLowerCase()}</td>
-                        </tr>
-                     `;
-                     instruction +=`
-                        <div class="card-body">
-                            ${items.instructions}
-                        </div>
-                     `;
-                       }
-                    })
-                    $('#ingredient').html("Ingredient");
-                    $('#instruction').html("Instruction");
-                    $('#table').append(gredient);
-                    $('#ins').html(instruction);
-                })
-              
-            }
-        })
-    }

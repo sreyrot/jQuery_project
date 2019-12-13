@@ -5,42 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Project</title>
+    <title>select</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style>
+        #line {
+            border-left: 2px solid;
+            height: 350px;
+            position: absolute;
+            left: 40%;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6" id="card">
-                <form action="#">
-                    <select id="recipe" class="form-control">
-                        <option value="" disabled selected>Choose recipe</option>
-                        <option value="1">Avocado Shake (Toek KaLok)</option>
-                        <option value="2">French creps</option>
-                      
-                    </select>
-                </form>
-               
-            </div>  
-            <div class="col-3"></div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <h3 id="ingredient"></h3>
-                    <table class="table table-borderless" id="table">
-                        </table>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <select class="form-control" id="recipe">
+                    <option value="" disabled selected>Choose recipe</option>
+                </select>
             </div>
-            <div class="col-6">
-                <h3 id="instruction"></h3>
-                <div class="card" id="ins"></div>
+            <div class="col-4"></div>
+        </div>
+        <br>
+        <br>
+        <!-- name and iconUrl -->
+        <div class="container">
+            <div class="row" id="data">
+                <div class="col-3"></div>
+                <div class="col-3" id="name">
+                </div>
+                <div class="col-3" id="icon">
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!-- increase and decrease of member -->
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4" id="button">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-danger" id="low" type="button">-</button>
+                    </div>
+                    <input type="text" id="value" class="form-control text-center" disabled >
+                    <div class="input-group-append">
+                        <button class="btn btn-success" id="add" type="button">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <hr>
+                <br>
+                <br>
+
+        <!-- ingredient -->
+        <div class="row">
+            <div class="col-5">
+                <h2 id="ing"></h2>
+                <table id="ingredient" class="table table-borderless"></table>
+            </div>
+            <div class="col-2" id="line"></div>
+            <div class="col-5">
+                <h2 id="ins"></h2>
+                <table id="introduction" class="table table-borderless"></table>
             </div>
         </div>
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/Jquery_project.js"></script>
-
 </body>
 
 </html>
