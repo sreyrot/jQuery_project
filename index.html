@@ -52,22 +52,23 @@
                     <div class="input-group-prepend">
                         <button class="btn btn-danger" id="low" type="button">-</button>
                     </div>
-                    <input type="text" id="value" class="form-control text-center" disabled >
+                    <div id="input"></div>
+                    <!-- <input type="text" id="value" value="0" class="form-control text-center" disabled> -->
                     <div class="input-group-append">
                         <button class="btn btn-success" id="add" type="button">+</button>
                     </div>
                 </div>
             </div>
         </div>
-                <hr>
-                <br>
-                <br>
+        <hr>
+        <br>
+        <br>
 
         <!-- ingredient -->
         <div class="row">
             <div class="col-5">
                 <h2 id="ing"></h2>
-                <table id="ingredient" class="table table-borderless"></table>
+                <table id="ingredient" id="out" class="table table-borderless"></table>
             </div>
             <div class="col-2" id="line"></div>
             <div class="col-5">
