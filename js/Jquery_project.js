@@ -3,11 +3,17 @@
 // Start to user jquery
 $(document).ready(() => {
     requestApi();
+
+    $("#text").hide();
     $('#line').hide();
     $("#button").hide();
+
     $("#recipe").on("change", () => {
+
+        $("#text").show();
         $('#line').show();
         $("#button").show();
+
         var recipeId = $("#recipe").val();
         selectRecipe(recipeId);
     });
@@ -48,13 +54,16 @@ function getRecipe(data) {
     data.recipes.forEach(element => {
 
         option += `
-    <option value ="${element.id}">${element.name}</option>
+      
+        <option value ="${element.id}">${element.name}</option>
     `;
     });
     $("#recipe").append(option);
 }
 
-
+// get quanlity
+var quan = [];
+var oldGuest = 0;
 
 // select recipi
 function selectRecipe(getID) {
@@ -66,6 +75,8 @@ function selectRecipe(getID) {
             getInstruction(item.instructions);
             // getNumberGest(item.nbGuests);
             getNumberGest(item.nbGuests);
+            getQuantiy = item;
+            oldGuest = item.nbGuests;
         }
     });
 }
@@ -81,7 +92,7 @@ function eachRecipe(name, iconUrl) {
     // for iconUrl
     var icons = "";
     icons += `
-    <img src="${iconUrl}" width="150px">
+    <img src="${iconUrl}" width="200px">
     `;
     $('#icon').html(icons);
 }
@@ -93,6 +104,8 @@ function inGredient(ing) {
 
         result += `
         <tr>
+            
+          
             <td><img src="${item.iconUrl}" width="50px"></td>
             <td id="put">${item.quantity}</td>
             <td>${item.unit[0]}</td>
@@ -121,9 +134,10 @@ function getInstruction(int) {
     $("#introduction").html(instruction);
 }
 
-// calculate
 
+// get number of gurest
 function getNumberGest(nbGuests){
+    
     var cal = "";
     cal +=`
     <input type="text" id="value" value="${nbGuests}" class="form-control text-center" disabled>
@@ -132,28 +146,44 @@ function getNumberGest(nbGuests){
 
 }
 
+// calculate
 function userInput(values){
     var getValue = parseInt(values) + 1;
     if(getValue <= 15){
        $('#value').val(getValue);    
-       mal(getValue);
+       mal($("#value").val());
     }
 }
 
 function lowInput(values){
     var lowValue = parseInt(values) - 1;
-    if(lowValue >= 0  ){
+    if(lowValue >= 1 ){
 
     $('#value').val(lowValue);
-    mal(lowValue);
-    }
-    
+    mal($("#value").val());
+    }  
 }
  function mal(output){
- 
-     $("#put").html(output);
-
-  
+    var quan;
+    var newQuan;
+    var result = "";
+    getQuantiy.ingredients.forEach(el => {
+    
+        quan = el.quantity/oldGuest;
+        newQuan = quan*output;
+        result += `
+      
+        <tr>
+       
+        <td><img src="${el.iconUrl}" style="width:50px"></td>
+        <td id='quantity'>${newQuan}</td>
+        <td>${el.unit[0]}</td>
+        <td>${el.name}</td>
+        </tr>
+    `;
+    $("#ingredient").html(result);
+    })
+    
  }
 
-
+ 
