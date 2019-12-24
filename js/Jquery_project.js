@@ -3,13 +3,13 @@
 // Start to user jquery
 $(document).ready(() => {
     requestApi();
-
+    $("#foot_image").show();
     $("#text").hide();
     $('#line').hide();
     $("#button").hide();
 
     $("#recipe").on("change", () => {
-
+        $("#foot_image").hide();
         $("#text").show();
         $('#line').show();
         $("#button").show();
@@ -140,7 +140,7 @@ function getNumberGest(nbGuests){
     
     var cal = "";
     cal +=`
-    <input type="text" id="value" value="${nbGuests}" class="form-control text-center" disabled>
+    <input type="text" id="value"  value="${nbGuests}" class="form-control text-center" disabled>
     `;
     $('#input').html(cal);
 

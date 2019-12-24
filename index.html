@@ -19,17 +19,19 @@
             left: 40%;
 
         }
+
         .jumbotron{
            margin-top: 120px;
         }
-        .carousel-inner img {
-      width: 100%;
-            height: 80px;
+        .container{
+           background-color: antiquewhite;
         }
+        
+      
     </style>
 </head>
 
-<body>
+<body >
 
 
         <div id="demo" class="carousel slide" data-ride="carousel">
@@ -42,15 +44,21 @@
                 </ul>
                 
                 <!-- The slideshow -->
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="img/1.jpg" alt="Los Angeles" width="1100" height="500">
+                <div class="carousel-inner" >
+                  <div class="carousel-item active" >
+                    <img src="img/b1.png" alt="Los Angeles" style="width: 100%;" >
                   </div>
                   <div class="carousel-item">
-                    <img src="img/photo-1490914327627-9fe8d52f4d90.jpg" alt="Chicago" width="1100" height="500">
+                    <img src="img/b2.png" alt="Chicago" style="width: 100%;">
                   </div>
                   <div class="carousel-item">
-                    <img src="img/photo-1493770348161-369560ae357d.jpg" alt="New York" width="1100" height="500">
+                    <img src="img/b3.png" alt="New York" style="width: 100%;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/b4.png" alt="New York" style="width: 100%;">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="img/b5.png" alt="New York" style="width: 100%;">
                   </div>
                 </div>
                 
@@ -68,7 +76,7 @@
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
-                <select class="form-control" id="recipe">
+                <select class="form-control mt-3" id="recipe">
                     <option value="" disabled selected>Choose recipe</option>
                 </select>
             </div>
@@ -115,14 +123,45 @@
         <br>
         <br>
 
+        
+        <div class="container">
+
+              <div class="row " id="foot_image" >
+                    <div class="col-3">
+                            <h2>Red Tomatoes in Cooking Pot</h2>
+                            <p>The most popular food....</p>
+                            <img src="img/pexels-photo-2170317.jpeg" class="rounded " alt="Cinque Terre" width="250" height="200"> 
+                    </div>
+                    <div class="col-3">
+                            <h2>Top View Photo Of Baked Pizza</h2>
+                            <p>The most popular food....</p>
+                            <img src="img/pexels-photo-238306.jpeg" class="rounded " alt="Cinque Terre" width="250" height="200"> 
+                    </div>
+                    <div class="col-3">
+                            <h2>Vegetable Salad on White Plate</h2>
+                            <p>The most popular food....</p>
+                            <img src="img/pexels-photo-2880882.jpeg" class="rounded " alt="Cinque Terre" width="250" height="200"> 
+                    </div>
+                    <div class="col-3">
+                            <h2>Stew With Meat and Vegetables</h2>
+                            <p>The most popular food....</p>
+                            <img src="img/pexels-photo-2474661.jpeg" class="rounded " alt="Cinque Terre" width="250" height="200"> 
+                    </div>
+              </div>
+              
+                
+                
+
+        </div>
         <!-- ingredient -->
         <div class="row">
             <div class="col-5">
-                <h2 id="ing"></h2>
+                        <h2 id="ing"></h2>
                 <table id="ingredient" id="out" class="table table-borderless"></table>
             </div>
             <div class="col-2" id="line"></div>
             <div class="col-5">
+                
                 <h2 id="ins"></h2>
                 <table id="introduction" class="table table-borderless"></table>
             </div>
