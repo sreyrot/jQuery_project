@@ -23,11 +23,18 @@
         .jumbotron{
            margin-top: 120px;
         }
+
         .container{
-           background-color: antiquewhite;
+          background-color: antiquewhite;
         }
+       
+      @media only screen and (max-width: 600px){
+        #line{
         
-      
+            height: 0;
+           
+        }
+      }
     </style>
 </head>
 
@@ -74,24 +81,24 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4">
+            <div class="col-sm-12 col-md-4 col-lg-4"></div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
                 <select class="form-control mt-3" id="recipe">
                     <option value="" disabled selected>Choose recipe</option>
                 </select>
             </div>
-            <div class="col-4"></div>
+            <div class="col-sm-12 col-md-4 col-lg-4"></div>
         </div>
         <br>
         <br>
         <!-- name and iconUrl -->
         <div class="container">
             <div class="row" id="data">
-                <div class="col-3"></div>
-                <div class="col-3" id="name"> </div>
+                <div class="col-sm-12 col-md-6 col-lg-3"></div>
+                <div class="col-sm-12 col-md-6 col-lg-3" id="name"> </div>
 
-                <div class="col-3" id="icon"> </div>
-                <div class="col-3"></div>
+                <div class="col-sm-12 col-md-6 col-lg-3" id="icon"> </div>
+                <div class="col-sm-12 col-md-6 col-lg-3"></div>
             </div>
         </div>
         <br>
@@ -99,10 +106,10 @@
         <!-- increase and decrease of member -->
         <div class="row">
             <div class="col-2"></div>
-            <div class="col-3">
+            <div class="col-sm-12 col-lg-3">
                 <h4 id="text">Number of persons</h4>
             </div>
-            <div class="col-5" id="button">
+            <div class="col-sm-12 col-lg-5" id="button">
                 
                 <div class="input-group mb-3">
                     <!-- button -->
@@ -127,22 +134,22 @@
         <div class="container">
 
               <div class="row " id="foot_image" >
-                    <div class="col-3">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
                             <h2>Red Tomatoes in Cooking Pot</h2>
                             <p>The most popular food....</p>
                             <img src="img/pexels-photo-2170317.jpeg" class="rounded " alt="Cinque Terre" width="250" height="200"> 
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
                             <h2>Top View Photo Of Baked Pizza</h2>
                             <p>The most popular food....</p>
                             <img src="img/pexels-photo-238306.jpeg" class="rounded " alt="Cinque Terre" width="250" height="200"> 
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
                             <h2>Vegetable Salad on White Plate</h2>
                             <p>The most popular food....</p>
                             <img src="img/pexels-photo-2880882.jpeg" class="rounded " alt="Cinque Terre" width="250" height="200"> 
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
                             <h2>Stew With Meat and Vegetables</h2>
                             <p>The most popular food....</p>
                             <img src="img/pexels-photo-2474661.jpeg" class="rounded " alt="Cinque Terre" width="250" height="200"> 
@@ -155,12 +162,12 @@
         </div>
         <!-- ingredient -->
         <div class="row">
-            <div class="col-5">
+            <div class="col-sm-12  col-lg-5">
                         <h2 id="ing"></h2>
                 <table id="ingredient" id="out" class="table table-borderless"></table>
             </div>
-            <div class="col-2" id="line"></div>
-            <div class="col-5">
+            <div class="col-sm-12  col-lg-2" id="line"></div>
+            <div class="col-sm-12  col-lg-5">
                 
                 <h2 id="ins"></h2>
                 <table id="introduction" class="table table-borderless"></table>
